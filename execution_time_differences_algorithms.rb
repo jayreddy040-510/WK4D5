@@ -62,7 +62,8 @@ def linear_largest_contiguous_subsum(arr)
         current_sum += arr[i]
         if current_sum > largest_sum
             largest_sum = current_sum
-        else current_sum = 0
+        else current_sum > 0 ? current_sum : current_sum = 0
+
         end
     end
 
