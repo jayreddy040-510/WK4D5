@@ -56,7 +56,7 @@ end
 
 def linear_largest_contiguous_subsum(arr)
 
-    largest_sum = 0
+    largest_sum = arr.max
     current_sum = 0
     arr.each_with_index do |x,i|
         current_sum += arr[i]
@@ -71,6 +71,9 @@ def linear_largest_contiguous_subsum(arr)
     
     
 end
+
+#This should be O(n) linear time. Tried to avoid using Array#max, but list3 with all negative numbers means I can't set my largest_sum baseline to 0. 
+
 
 
 
