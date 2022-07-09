@@ -31,7 +31,7 @@ end
 # p second_anagram?("elvis", "lives")    #=> true
 
 
-#first_anagram? is longer time complexity than #second_anagram? the 2nd is O(n)
+#first_anagram? is longer time complexity than #second_anagram? the 2nd is O(n^2)
 
 
 def third_anagram?(str1,str2)
