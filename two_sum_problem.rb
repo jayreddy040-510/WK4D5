@@ -20,19 +20,20 @@ def bsearch(arr,target)
 return nil if arr.empty?
 return nil if arr.length == 1 && arr.first != target
 
-    piv = arr.length/2
+    # piv = arr.length/2
 
-        if target == arr[piv]
-            return piv
-        elsif target < arr[piv]
-            return bsearch(arr[0...piv], target)
-        elsif target > arr[piv]
-            return nil if bsearch(arr.drop(piv+1), target) == nil
-            return bsearch(arr.drop(piv+1), target) + piv + 1
-        end
+    #     if target == arr[piv]
+    #         return piv
+    #     elsif target < arr[piv]
+    #         return bsearch(arr[0...piv], target)
+    #     elsif target > arr[piv]
+    #         return nil if bsearch(arr.drop(piv+1), target) == nil
+    #         return bsearch(arr.drop(piv+1), target) + piv + 1
+    #     end
     
-        return nil
+    #     return nil
     
+    arr.index(target)
 end
 
 def quick_sort(arr)
@@ -51,8 +52,8 @@ end
 
 def okay_two_sum?(arr,target)
     arr = quick_sort(arr)
-    arr.each do |x|
-        if bsearch(arr, (target-x))
+    arr.each_with_index do |x,i|
+        if bsearch((arr[0...i] + arr[i+1..-1]), (target - x))
             return true
         else
             next
@@ -63,8 +64,12 @@ def okay_two_sum?(arr,target)
 
 end
 
-p okay_two_sum?([1,2,-3,4,5,6,-8,7,4,5,12,3,-4,2,1,-6,5,13], 5)
-p okay_two_sum?(arr1, 6) # => should be true
-p okay_two_sum?([5,4,3,2,6], 10) # => should be false
+# p okay_two_sum?([1,2,-3,4,5,6,-8,7,4,5,12,3,-4,2,1,-6,5,13], 5)
+# p okay_two_sum?(arr1, 6) # => should be true
+# p okay_two_sum?(arr1, 10) # => should be false
+
+def two_sum?(arr,target)
+    hash = arr.tally
+    
 
 
