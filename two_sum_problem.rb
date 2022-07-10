@@ -70,6 +70,18 @@ end
 
 def two_sum?(arr,target)
     hash = arr.tally
-    
+    hash.keys.each_with_index do |x,i|
+        next if target - x == x && hash[x] == 1
+        return true if hash[target-x]
+    end
+
+    return false
+end
+
+p two_sum?([1,2,-3,4,5,6,-8,7,4,5,12,3,-4,2,1,-6,5,13], 5)
+p two_sum?(arr1, 6) # => should be true
+p two_sum?(arr1, 10) # => should be false
+
+
 
 
